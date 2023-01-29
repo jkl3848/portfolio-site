@@ -1,37 +1,37 @@
 <script setup>
 import { ref } from "vue";
 import AboutMe from "./AboutMe.vue"
-var showBar = ref(false)
+import DiffBlock from "./DiffBlock.vue";
 
+var showBar = ref(false)
 </script>
 
 <template>
   <div id="container">
   <div id="header">
-<table class="navbar">
-  <tr>
-    <td class="nav-button">
-Home
-    </td>
-    <td class="nav-button" @mouseenter="showBar = true" @mouseleave="showBar = false">Projects</td>
-    <div class="header-dropdown">
- 
-</div>
-    <td class="nav-button">Contact</td>
-  </tr>
-</table>
-<table class="nav-dropdown" v-if="showBar">
-    <tr>
-    <td class="nav-button">
-    Demos</td>
-  </tr>
-  <tr><td class="nav-button">Hobbies </td></tr></table>
+    <table>
+      <tr>
+        <td>Home</td>
+        <td>Projects</td>
+        <div class="header-dropdown">
+          <tr>
+            Demos
+          </tr>
+          <tr>
+            Hobbies
+          </tr>
+        </div>
+        <td>Contact</td>
+      </tr>
+    </table>
   </div>
-  <AboutMe></AboutMe>
-  
-  <div id="footer">
 
-  </div>
+  <DiffBlock></DiffBlock>
+
+  <AboutMe></AboutMe>
+
+  <div id="footer"></div>
+
 </div>
 </template>
 

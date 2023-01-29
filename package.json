@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "diff-match-patch": "^1.0.5",
+    "uuid": "^9.0.0",
     "vue": "^3.2.13"
   },
   "devDependencies": {
@@ -24,7 +25,8 @@
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "node": true,
+      "es6": true
     },
     "extends": [
       "plugin:vue/vue3-essential",
