@@ -1,3 +1,4 @@
+<!-- eslint-disable no-unused-vars -->
 <script setup>
 import { ref } from "vue";
 import AboutMe from "./AboutMe.vue"
@@ -25,10 +26,11 @@ var showBar = ref(false)
       </tr>
     </table>
   </div>
+  
+  <AboutMe></AboutMe>
 
   <DiffBlock></DiffBlock>
 
-  <AboutMe></AboutMe>
 
   <div id="footer"></div>
 
