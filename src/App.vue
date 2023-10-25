@@ -1,23 +1,21 @@
 <script setup>
-import MainPage from './components/MainPage.vue'
-
-
+import MainPage from "./components/MainPage.vue";
 </script>
 
 <template>
   <div id="main-flow">
-  <MainPage/>
-</div>
+    <MainPage />
+  </div>
 </template>
 
-
 <style>
-#main-flow{
+#main-flow {
   margin-top: 0;
   margin: auto;
   width: 1500px;
 }
-body{
+body {
   background-color: lightslategray;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 </style>
