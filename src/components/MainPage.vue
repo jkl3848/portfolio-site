@@ -21,7 +21,13 @@ var projectDrop = ref();
           Projects
         </div>
         <div class="nav-bar-item">Contact</div>
-        <div class="nav-bar-item" id="links">github</div>
+        <div>
+          <a href="https://github.com/jkl3848" target="_blank">
+            <img
+              src="../assets/github/github-mark-white.png"
+              class="nav-bar-icon"
+          /></a>
+        </div>
       </div>
     </div>
     <div
@@ -36,8 +42,11 @@ var projectDrop = ref();
 
     <AboutMe></AboutMe>
 
-    <DiffBlock></DiffBlock>
-
+    <div id="demos" class="section">
+      <p class="section-title">DEMOS</p>
+      <DiffBlock></DiffBlock>
+    </div>
+    <div id="hobbies" class="section"></div>
     <div id="footer"></div>
   </div>
 </template>
@@ -79,7 +88,25 @@ var projectDrop = ref();
   font-size: 28px;
   margin: auto;
 }
+.nav-bar-icon {
+  height: 40px;
+  margin: 8px;
+}
 .nav-bar-item:hover {
   background-color: rgb(22, 22, 95);
+}
+.nav-bar-icon:hover {
+  opacity: 0.6;
+}
+
+.section {
+}
+
+.section-title {
+  font-size: 72px;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 </style>
