@@ -10,7 +10,6 @@ import MainPage from "./components/MainPage.vue";
 
 <style>
 #main-flow {
-  margin-top: 0;
   margin: auto;
   width: 1500px;
 }

@@ -3,6 +3,7 @@
 import { ref } from "vue";
 import AboutMe from "./AboutMe.vue";
 import DiffBlock from "./DiffBlock.vue";
+import DiceRoller from "./DiceRoller.vue";
 
 var showBar = ref(false);
 var projectDrop = ref();
@@ -45,6 +46,7 @@ var projectDrop = ref();
     <div id="demos" class="section">
       <p class="section-title">DEMOS</p>
       <DiffBlock></DiffBlock>
+      <DiceRoller></DiceRoller>
     </div>
     <div id="hobbies" class="section"></div>
     <div id="footer"></div>
@@ -54,7 +56,7 @@ var projectDrop = ref();
 <style scoped>
 #container {
   background-color: white;
-  height: 1000px;
+  padding-bottom: 20px;
 }
 #header {
   color: white;
