@@ -1,14 +1,36 @@
 <!-- eslint-disable no-unused-vars -->
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
+import diceFuncs from "../js/dice.js";
 
-var d4 = ref(0);
-var d6 = ref(0);
-var d8 = ref(0);
-var d10 = ref(0);
-var d12 = ref(0);
-var d20 = ref(0);
-var d100 = ref(0);
+const dice = diceFuncs();
+
+var diceObj = ref([]);
+var diceTotal = ref(0);
+const diceMax = computed(() => {
+  const vals = diceObj.value.map((item) => item.max);
+  let sum = vals.reduce((total, currentVal) => total + currentVal, 0);
+  return sum;
+});
+
+function addDice(type) {
+  console.log(type);
+  diceObj.value.push({ type: "d" + type, max: type, val: 0 });
+
+  console.log(diceObj.value);
+}
+
+function removeDice(type) {
+  var dieIndex = diceObj.value.findIndex((item) => item.type === type);
+
+  diceObj.value.splice(dieIndex, 1);
+}
+
+function roll() {
+  let res = dice.rollDice(diceObj.value);
+  diceTotal.value = res.total;
+  diceObj.value = res.dice;
+}
 </script>
 
 <template>
@@ -16,16 +38,25 @@ var d100 = ref(0);
     <div id="dice-header">Dice Roller</div>
 
     <div id="dice-selector">
-      <div class="dice-select">4</div>
-      <div class="dice-select">6</div>
-      <div class="dice-select">8</div>
-      <div class="dice-select">10</div>
-      <div class="dice-select">12</div>
-      <div class="dice-select">20</div>
-      <div class="dice-select">100</div>
+      <div class="dice-row">
+        <div class="dice-select" @click="addDice(4)">4</div>
+        <div class="dice-select" @click="addDice(6)">6</div>
+        <div class="dice-select" @click="addDice(8)">8</div>
+        <div class="dice-select" @click="addDice(10)">10</div>
+      </div>
+      <div class="dice-row">
+        <div class="dice-select" @click="addDice(12)">12</div>
+        <div class="dice-select" @click="addDice(20)">20</div>
+        <div class="dice-select" @click="addDice(100)">100</div>
+      </div>
     </div>
 
-    <div id="dice-canvas"></div>
+    <div id="button-holder">
+      <button id="roll-button" @click="roll()">Roll</button>
+      Total: {{ diceTotal }} Max: {{ diceMax }}
+      Avg:
+    </div>
+    <div id="dice-canvas">{{ diceObj }}</div>
   </div>
 </template>
 
@@ -42,5 +73,37 @@ var d100 = ref(0);
   border: 2px solid black;
   width: 80%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.dice-row {
+  margin: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.dice-select {
+  font-size: 40px;
+}
+
+#button-holder {
+}
+
+#roll-button {
+  height: 60px;
+  width: 120px;
+  background-color: green;
+  color: rgba(255, 255, 255, 0.803);
+  font-size: 40px;
+  border-radius: 12px;
+  border: 2px solid rgb(44, 44, 44);
+  margin: auto;
+}
+#dice-canvas {
+  border: 2px solid black;
+  width: 80%;
+  margin: auto;
+
+  height: 480px;
 }
 </style>

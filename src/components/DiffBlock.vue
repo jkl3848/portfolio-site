@@ -36,9 +36,13 @@ function runDiff(a, b) {
       <textarea id="texta" class="diff-box" v-model="textAString"></textarea>
       <textarea id="textb" class="diff-box" v-model="textBString"></textarea>
     </div>
+    <div id="output-headers">
+      <span class="diff-text-header"> Text A:</span>
+
+      <span class="diff-text-header"> Text B:</span>
+    </div>
     <div id="diff-output">
       <p id="text1" class="diff-text">
-        <span class="diff-text-header">Text A:</span>
         <!-- eslint-disable-next-line vue/no-parsing-error -->
         <span
           v-for="frag in diffArr?.filter((item) => item.action <= 0)"
@@ -55,7 +59,6 @@ function runDiff(a, b) {
         </span>
       </p>
       <p id="text2" class="diff-text">
-        <span class="diff-text-header"> Text B:</span>
         <!-- eslint-disable-next-line vue/no-parsing-error -->
         <span
           v-for="frag in diffArr?.filter((item) => item.action >= 0)"
@@ -94,7 +97,17 @@ function runDiff(a, b) {
 #diff-output {
   display: flex;
   flex-direction: row;
-  padding: 24px;
+  height: 300px;
+  overflow-y: scroll;
+  margin: 24px;
+  margin-top: 0px;
+}
+
+#output-headers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 12px;
 }
 
 textarea {
@@ -114,7 +127,7 @@ textarea {
 }
 
 .diff-text-header {
-  font-size: 20px;
+  font-size: 32px;
   padding-right: 12px;
 }
 
