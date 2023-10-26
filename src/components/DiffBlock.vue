@@ -76,6 +76,9 @@ function runDiff(a, b) {
 </template>
 
 <style scoped>
+#diff-block {
+  padding-top: 24px;
+}
 #diff-header {
   font-size: 48px;
   text-align: center;
